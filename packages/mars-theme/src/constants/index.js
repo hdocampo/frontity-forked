@@ -1,4 +1,5 @@
 export const BLACK = '#000';
+export const WHITE = '#fff';
 export const GREEN_PRIMARY = '#6BB42E';
 export const GREEN_SECONDARY = '#056734';
 export const GREEN_PALE = '#F7F8E4';

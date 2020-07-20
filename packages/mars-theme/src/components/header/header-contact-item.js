@@ -26,7 +26,7 @@ const HeaderContactItem = (props) => {
         {buildIcon()}
         <div>
           <p>{message} <br />
-            <strong>{number}</strong></p>
+            <span>{number}</span></p>
         </div>
       </div>
     </div>

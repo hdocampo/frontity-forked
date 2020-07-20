@@ -1,10 +1,13 @@
 import React from "react";
 import { connect, styled } from "frontity";
+import Button from '@material-ui/core/Button';
 import HeaderContactItem from './header-contact-item'
+
 import Link from "../link";
 import Nav from "../nav";
 import MobileMenu from "../menu";
 
+import Logo from './../../assets/logo.png'
 import useStyles from './styles'
 
 const Header = ({ state }) => {
@@ -14,8 +17,13 @@ const Header = ({ state }) => {
     <>
       <div className={classes.header}>
         <StyledLink link="/">
-          <Title>{state.frontity.title}</Title>
-          <Description>{state.frontity.description}</Description>
+          <img src={Logo} alt={state.frontity.title}
+            className={classes.headerImgLogo}
+          />
+          <div className={classes.headerSiteInfo}>
+            <Title>{state.frontity.title}</Title>
+            <Description>{state.frontity.description}</Description>
+          </div>
         </StyledLink>
         <div className={classes.headerContact}>
           <div className={classes.headerContactItemList}>
@@ -36,10 +44,10 @@ const Header = ({ state }) => {
             />
           </div>
           <div className={classes.headerNav}>
-            <ul>
-              <li>Nosotros</li>
-              <li>Servicios</li>
-              <li><button>Consultar</button></li>
+            <ul className={classes.headerNavList}>
+              <li><a href="#">Nosotros</a></li>
+              <li><a href="#">Servicios</a></li>
+              <li><Button>Consultar</Button></li>
             </ul>
           </div>
         </div>
@@ -64,4 +72,5 @@ const Description = styled.h4`
 
 const StyledLink = styled(Link)`
   text-decoration: none;
+  max-height: 110px;
 `;

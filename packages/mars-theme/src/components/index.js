@@ -1,6 +1,12 @@
 import React from "react";
 import { Global, css, connect, styled, Head } from "frontity";
-import 'fontsource-roboto';
+
+import Roboto from "../assets/fonts/Roboto-Regular.ttf";
+import RobotoMedium from "../assets/fonts/Roboto-Medium.ttf";
+import RobotoBold from "../assets/fonts/Roboto-Bold.ttf";
+import RobotoCondensedBold from "../assets/fonts/RobotoCondensed-Bold.ttf";
+import RobotoCondensed from "../assets/fonts/RobotoCondensed-Regular.ttf";
+
 import Switch from "@frontity/components/switch";
 import Header from "./header/header";
 import List from "./list";
@@ -53,9 +59,49 @@ const Theme = ({ state }) => {
 export default connect(Theme);
 
 const globalStyles = css`
+  @font-face {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: normal;
+    font-display: fallback;
+    src: url("${Roboto}") format("truetype");
+  }
+
+  @font-face {
+    font-family: "Roboto-Medium";
+    font-style: normal;
+    font-weight: normal;
+    font-display: fallback;
+    src: url("${RobotoMedium}") format("truetype");
+  }
+
+  @font-face {
+    font-family: "Roboto-Bold";
+    font-style: normal;
+    font-weight: normal;
+    font-display: fallback;
+    src: url("${RobotoBold}") format("truetype");
+  }
+
+  @font-face {
+    font-family: "RobotoCondensed-Bold";
+    font-style: normal;
+    font-weight: normal;
+    font-display: fallback;
+    src: url("${RobotoCondensedBold}") format("truetype");
+  }
+
+  @font-face {
+    font-family: "RobotoCondensed-Regular";
+    font-style: normal;
+    font-weight: normal;
+    font-display: fallback;
+    src: url("${RobotoCondensed}") format("truetype");
+  }
+
   body {
     margin: 0;
-    font-family: Roboto, sans-serif;
+    font-family: 'Roboto', sans-serif;
   }
   a,
   a:visited {

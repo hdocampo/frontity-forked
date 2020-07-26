@@ -2,6 +2,7 @@ import React from "react";
 import { Global, css, connect, styled, Head } from "frontity";
 
 import Roboto from "../assets/fonts/Roboto-Regular.ttf";
+import RobotoLight from "../assets/fonts/Roboto-Light.ttf";
 import RobotoMedium from "../assets/fonts/Roboto-Medium.ttf";
 import RobotoBold from "../assets/fonts/Roboto-Bold.ttf";
 import RobotoCondensedBold from "../assets/fonts/RobotoCondensed-Bold.ttf";
@@ -9,19 +10,30 @@ import RobotoCondensed from "../assets/fonts/RobotoCondensed-Regular.ttf";
 
 import Switch from "@frontity/components/switch";
 import Header from "./header/header";
+import Slider from "./slider/slider";
+
 import List from "./list";
 import Post from "./post";
 import Loading from "./loading";
 import Title from "./title";
 import PageError from "./page-error";
+// import useStyles from './styles'
 
 /**
  * Theme is the root React component of our theme. The one we will export
  * in roots.
  */
 const Theme = ({ state }) => {
+  // const classes = useStyles();
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
+
+  var items = [
+    {
+      name: "Volvemos para cuidarte",
+      description: "Porque tu dolor no puede esperar, te esperamos nuevamente en nuestra clínica, con todas las medidas santitarias para cuidarte y cuidarnos."
+    }
+  ]
 
   return (
     <>
@@ -46,10 +58,13 @@ const Theme = ({ state }) => {
       on the type of URL we are in. */}
       <Main>
         <Switch>
-          <Loading when={data.isFetching} />
+          <Slider
+            items={items}
+          />
+          {/* <Loading when={data.isFetching} />
           <List when={data.isArchive} />
           <Post when={data.isPostType} />
-          <PageError when={data.isError} />
+          <PageError when={data.isError} /> */}
         </Switch>
       </Main>
     </>
@@ -65,6 +80,14 @@ const globalStyles = css`
     font-weight: normal;
     font-display: fallback;
     src: url("${Roboto}") format("truetype");
+  }
+
+  @font-face {
+    font-family: "Roboto-Light";
+    font-style: normal;
+    font-weight: normal;
+    font-display: fallback;
+    src: url("${RobotoLight}") format("truetype");
   }
 
   @font-face {

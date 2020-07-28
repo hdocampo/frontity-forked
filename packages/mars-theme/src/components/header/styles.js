@@ -36,7 +36,7 @@ export default makeStyles({
     fontSize: '12px',
     '& p > span': {
       fontSize: '16px',
-      fontFamily: 'Roboto-Medium'
+      fontFamily: 'Roboto-Bold'
     }
   },
   headerContact: {

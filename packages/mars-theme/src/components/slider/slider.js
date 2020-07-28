@@ -1,6 +1,6 @@
 import React from "react";
 import Carousel from 'react-material-ui-carousel'
-import { Button, Typography, Box } from '@material-ui/core';
+import { Button, Typography } from '@material-ui/core';
 import useStyles from './styles'
 
 const Slider = (props) => {

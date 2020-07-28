@@ -1,22 +1,21 @@
 import React from "react";
 import { Global, css, connect, styled, Head } from "frontity";
 
-import Roboto from "../assets/fonts/Roboto-Regular.ttf";
+// import Roboto from "../assets/fonts/Roboto-Regular.ttf";
 import RobotoLight from "../assets/fonts/Roboto-Light.ttf";
 import RobotoMedium from "../assets/fonts/Roboto-Medium.ttf";
-import RobotoBold from "../assets/fonts/Roboto-Bold.ttf";
+// import RobotoBold from "../assets/fonts/Roboto-Bold.ttf";
 import RobotoCondensedBold from "../assets/fonts/RobotoCondensed-Bold.ttf";
 import RobotoCondensed from "../assets/fonts/RobotoCondensed-Regular.ttf";
 
 import Switch from "@frontity/components/switch";
 import Header from "./header/header";
+import FeaturedItems from "./featured-items/featured-items";
 import Slider from "./slider/slider";
 
-import List from "./list";
 import Post from "./post";
-import Loading from "./loading";
+// import Loading from "./loading";
 import Title from "./title";
-import PageError from "./page-error";
 // import useStyles from './styles'
 
 /**
@@ -33,6 +32,30 @@ const Theme = ({ state }) => {
       name: "Volvemos para cuidarte",
       description: "Porque tu dolor no puede esperar, te esperamos nuevamente en nuestra clínica, con todas las medidas santitarias para cuidarte y cuidarnos."
     }
+  ]
+
+  var featuredList = [
+    {
+      title: "Especialistas",
+      description: "Una larga trayectoria nos avala en el tratamiento de afecciones de columna.",
+      icon: "medical"
+    },
+    {
+      title: "Infrared",
+      description: "Somos pioneros en Uruguay en su uso para diagnóstico.",
+      icon: "infrared"
+    },
+    {
+      title: "Consulta Integral",
+      description: "Nuestro enfoque comprende la totalidad del paciente.",
+      icon: "approach"
+    },
+
+    {
+      title: "Puntualidad",
+      description: "Tu tiempo importa, agendás, llegás y te atendés!",
+      icon: "time"
+    },
   ]
 
   return (
@@ -58,9 +81,17 @@ const Theme = ({ state }) => {
       on the type of URL we are in. */}
       <Main>
         <Switch>
-          <Slider
-            items={items}
-          />
+          <HomeContent>
+            <Slider
+              items={items}
+            />
+            <HomeContainer>
+              <FeaturedItems
+                items={featuredList}
+              />
+              <div>Contacto</div>
+            </HomeContainer>
+          </HomeContent>
           {/* <Loading when={data.isFetching} />
           <List when={data.isArchive} />
           <Post when={data.isPostType} />
@@ -74,13 +105,6 @@ const Theme = ({ state }) => {
 export default connect(Theme);
 
 const globalStyles = css`
-  @font-face {
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: normal;
-    font-display: fallback;
-    src: url("${Roboto}") format("truetype");
-  }
 
   @font-face {
     font-family: "Roboto-Light";
@@ -91,19 +115,11 @@ const globalStyles = css`
   }
 
   @font-face {
-    font-family: "Roboto-Medium";
-    font-style: normal;
-    font-weight: normal;
-    font-display: fallback;
-    src: url("${RobotoMedium}") format("truetype");
-  }
-
-  @font-face {
     font-family: "Roboto-Bold";
     font-style: normal;
     font-weight: normal;
     font-display: fallback;
-    src: url("${RobotoBold}") format("truetype");
+    src: url("${RobotoMedium}") format("truetype");
   }
 
   @font-face {
@@ -124,12 +140,16 @@ const globalStyles = css`
 
   body {
     margin: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto-Light', sans-serif;
   }
   a,
   a:visited {
     color: inherit;
     text-decoration: none;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: serif;
   }
 `;
 
@@ -138,6 +158,19 @@ const HeadContainer = styled.div`
   align-items: center;
   flex-direction: column;
   justify-content: center;
+`;
+
+const HomeContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  max-width: 1280px;
+`;
+
+const HomeContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 `;
 
 const Main = styled.div`

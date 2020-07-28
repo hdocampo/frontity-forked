@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Global, css, connect, styled, Head } from "frontity";
 
 // import Roboto from "../assets/fonts/Roboto-Regular.ttf";
@@ -12,97 +12,13 @@ import Switch from "@frontity/components/switch";
 import Header from "./header/header";
 import FeaturedItems from "./featured-items/featured-items";
 import Slider from "./slider/slider";
+import ContactForm from "./contact-form/contact-form";
 
 import Post from "./post";
 // import Loading from "./loading";
 import Title from "./title";
 // import useStyles from './styles'
 
-/**
- * Theme is the root React component of our theme. The one we will export
- * in roots.
- */
-const Theme = ({ state }) => {
-  // const classes = useStyles();
-  // Get information about the current URL.
-  const data = state.source.get(state.router.link);
-
-  var items = [
-    {
-      name: "Volvemos para cuidarte",
-      description: "Porque tu dolor no puede esperar, te esperamos nuevamente en nuestra clínica, con todas las medidas santitarias para cuidarte y cuidarnos."
-    }
-  ]
-
-  var featuredList = [
-    {
-      title: "Especialistas",
-      description: "Una larga trayectoria nos avala en el tratamiento de afecciones de columna.",
-      icon: "medical"
-    },
-    {
-      title: "Infrared",
-      description: "Somos pioneros en Uruguay en su uso para diagnóstico.",
-      icon: "infrared"
-    },
-    {
-      title: "Consulta Integral",
-      description: "Nuestro enfoque comprende la totalidad del paciente.",
-      icon: "approach"
-    },
-
-    {
-      title: "Puntualidad",
-      description: "Tu tiempo importa, agendás, llegás y te atendés!",
-      icon: "time"
-    },
-  ]
-
-  return (
-    <>
-      {/* Add some metatags to the <head> of the HTML. */}
-      <Title />
-      <Head>
-        <meta name="description" content={state.frontity.description} />
-        <meta name="keywords" content="curacion" />
-        <html lang="es" />
-      </Head>
-
-      {/* Add some global styles for the whole site, like body or a's. 
-      Not classes here because we use CSS-in-JS. Only global HTML tags. */}
-      <Global styles={globalStyles} />
-
-      {/* Add the header of the site. */}
-      <HeadContainer>
-        <Header />
-      </HeadContainer>
-
-      {/* Add the main section. It renders a different component depending
-      on the type of URL we are in. */}
-      <Main>
-        <Switch>
-          <HomeContent>
-            <Slider
-              items={items}
-            />
-            <HomeContainer>
-              <FeaturedItems
-                items={featuredList}
-              />
-              <div>Contacto</div>
-            </HomeContainer>
-          </HomeContent>
-          {/* <Loading when={data.isFetching} />
-          <List when={data.isArchive} />
-          <Post when={data.isPostType} />
-          <PageError when={data.isError} /> */}
-        </Switch>
-      </Main>
-    </>
-  );
-};
-
-export default connect(Theme);
 
 const globalStyles = css`
 
@@ -152,6 +68,122 @@ const globalStyles = css`
     font-family: serif;
   }
 `;
+
+const passwordAuth = 'LetiJuli';
+
+
+/**
+ * Theme is the root React component of our theme. The one we will export
+ * in roots.
+ */
+const Theme = ({ state }) => {
+  // const classes = useStyles();
+  // Get information about the current URL.
+  const data = state.source.get(state.router.link);
+  const [authOK, setAuth] = useState(false);
+  const [userInput, setInput] = useState(undefined);
+
+  useEffect(() => {
+    window.addEventListener('load', () => {
+      console.log('PIDIENDO CREDENCIALES !!!');
+      authPrompt();
+    })
+  });
+
+  useEffect(() => {
+    userInput === 'letijuli' ? setAuth(true) : null;
+  }, [userInput]);
+
+  const authPrompt = () => {
+    if (userInput === undefined) {
+      setInput(window.prompt('please enter password:'))
+    }
+  }
+
+  var items = [
+    {
+      name: "Volvemos para cuidarte",
+      description: "Porque tu dolor no puede esperar, te esperamos nuevamente en nuestra clínica, con todas las medidas santitarias para cuidarte y cuidarnos."
+    }
+  ]
+
+  var featuredList = [
+    {
+      title: "Especialistas",
+      description: "Una larga trayectoria nos avala en el tratamiento de afecciones de columna.",
+      icon: "medical"
+    },
+    {
+      title: "Infrared",
+      description: "Somos pioneros en Uruguay en su uso para diagnóstico.",
+      icon: "infrared"
+    },
+    {
+      title: "Consulta Integral",
+      description: "Nuestro enfoque comprende la totalidad del paciente.",
+      icon: "approach"
+    },
+
+    {
+      title: "Puntualidad",
+      description: "Tu tiempo importa, agendás, llegás y te atendés!",
+      icon: "time"
+    },
+  ]
+
+  if (!authOK) {
+    return <>
+      Need Authentication
+    </>
+  }
+
+  if (authOK) {
+    return (
+      <>
+        {/* Add some metatags to the <head> of the HTML. */}
+        <Title />
+        <Head>
+          <meta name="description" content={state.frontity.description} />
+          <meta name="keywords" content="curacion" />
+          <html lang="es" />
+        </Head>
+
+        {/* Add some global styles for the whole site, like body or a's. 
+      Not classes here because we use CSS-in-JS. Only global HTML tags. */}
+        <Global styles={globalStyles} />
+
+        {/* Add the header of the site. */}
+        <HeadContainer>
+          <Header />
+        </HeadContainer>
+
+        {/* Add the main section. It renders a different component depending
+      on the type of URL we are in. */}
+        <Main>
+          <Switch>
+            <HomeContent>
+              <Slider
+                items={items}
+              />
+              <HomeContainer>
+                <FeaturedItems
+                  items={featuredList}
+                />
+                <ContactForm />
+              </HomeContainer>
+            </HomeContent>
+            {/* <Loading when={data.isFetching} />
+          <List when={data.isArchive} />
+          <Post when={data.isPostType} />
+          <PageError when={data.isError} /> */}
+          </Switch>
+        </Main>
+      </>
+    );
+  }
+};
+
+export default connect(Theme);
 
 const HeadContainer = styled.div`
   display: flex;

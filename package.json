@@ -22,5 +22,8 @@
     "@material-ui/icons": "^4.9.1",
     "frontity": "^1.10.0",
     "react-material-ui-carousel": "^1.7.1"
+  },
+  "devDependencies": {
+    "eslint-plugin-react-hooks": "^4.0.8"
   }
 }

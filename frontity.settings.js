@@ -1,48 +1,53 @@
 const settings = {
-  "name": "fisioespalda",
-  "state": {
-    "frontity": {
-      "url": "https://fisioespalda.neoimage.net",
-      "title": "Fisioespalda",
-      "description": "Nos encanta cuidarte"
+  name: 'fisioespalda',
+  state: {
+    frontity: {
+      url: 'https://fisioespalda.neoimage.net',
+      title: 'Fisioespalda',
+      description: 'Nos encanta cuidarte'
     }
   },
-  "packages": [
+  packages: [
+    'frontity-contact-form-7',
     {
-      "name": "@frontity/mars-theme",
-      "state": {
-        "theme": {
-          "menu": [
+      name: '@frontity/mars-theme',
+      state: {
+        theme: {
+          menu: [
             [
-              "Home",
-              "/"
+              'Home',
+              '/'
             ],
             [
-              "Sobre Nosotros",
-              "/sobre-nosotros/"
+              'Sobre Nosotros',
+              '/sobre-nosotros/'
             ],
             [
-              "Contacto",
-              "/contacto/"
+              'Contacto',
+              '/contacto/'
+            ],
+            [
+              'Contact Form',
+              '/contact-form-7/'
             ]
           ],
-          "featured": {
-            "showOnList": false,
-            "showOnPost": false
+          featured: {
+            showOnList: false,
+            showOnPost: false
           }
         }
       }
     },
     {
-      "name": "@frontity/wp-source",
-      "state": {
-        "source": {
-          "api": "https://www.fisioespalda.com.uy/wp-json"
+      name: '@frontity/wp-source',
+      state: {
+        source: {
+          api: 'https://www.fisioespalda.com.uy/wp-json'
         }
       }
     },
-    "@frontity/tiny-router",
-    "@frontity/html2react"
+    '@frontity/tiny-router',
+    '@frontity/html2react'
   ]
 };
 

@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 import {
-  GREEN_SECONDARY,
-} from '../../constants'
+  GREEN_SECONDARY
+} from '../../styles'
 
 export default makeStyles({
   featuredHeading: {

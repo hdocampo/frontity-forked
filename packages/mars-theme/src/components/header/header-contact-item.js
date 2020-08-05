@@ -1,5 +1,5 @@
-import React from "react";
-import { AccessTime, LocationOnOutlined, PhonelinkRing } from '@material-ui/icons';
+import React from 'react';
+import { AccessTime, LocationOnOutlined, Phone } from '@material-ui/icons';
 
 import useStyles from './styles'
 
@@ -16,7 +16,7 @@ const HeaderContactItem = (props) => {
       return <LocationOnOutlined className={classes.headerContactIcon} />
     }
     if (icon === 'phone') {
-      return <PhonelinkRing className={classes.headerContactIcon} />
+      return <Phone className={classes.headerContactIcon} />
     }
   }
 
@@ -25,8 +25,11 @@ const HeaderContactItem = (props) => {
       <div className={classes.headerContactItemContent}>
         {buildIcon()}
         <div>
-          <p>{message} <br />
-            <span>{number}</span></p>
+          <p>
+            {message}
+            <br />
+            <span>{number}</span>
+          </p>
         </div>
       </div>
     </div>

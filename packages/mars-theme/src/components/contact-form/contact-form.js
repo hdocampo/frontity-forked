@@ -1,18 +1,21 @@
-import React from "react";
-import useStyles from './styles'
+import React, { useEffect, useState } from 'react';
+import { Typography } from '@material-ui/core'
+import { getPage } from '../../services/services'
+import useStyles from './styles';
 
-const ContactForm = props => {
+const ContactForm = ({ libraries }) => {
+  const Html2React = libraries.html2react.Component;
   const classes = useStyles();
+  const [formHTML, setFormHTML] = useState(undefined);
+
+  useEffect(() => {
+    getPage(376).then(response => setFormHTML(response.content.rendered))
+  });
+
   return (
     <div className={classes.contactForm}>
-      <form action="">
-        <label htmlFor="name">Nombre</label>
-        <input type="text" name="name" id="name" required />
-        <label htmlFor="email">E-mail</label>
-        <input type="email" name="email" id="email" required/>
-        <label htmlFor="phone">E-mail</label>
-        <input type="number" name="phone" id="phone" required/>
-      </form>
+      <Typography variant="h4" className={classes.contactFormTitle}>Coordina tu consulta</Typography>
+      {formHTML ? <Html2React html={formHTML} /> : 'cargando formulario...'}
     </div>
   )
 }

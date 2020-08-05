@@ -7,7 +7,7 @@ import {
   WHITE,
   BLACK,
   GREEN_SECONDARY
-} from '../../constants'
+} from '../../styles'
 
 export default makeStyles({
   sliderContainer: {

@@ -1,13 +1,13 @@
-import React from "react";
-import { connect, styled } from "frontity";
+import React from 'react';
+import { connect, styled } from 'frontity';
 import Button from '@material-ui/core/Button';
 import HeaderContactItem from './header-contact-item'
 
-import Link from "../link";
-import Nav from "../nav";
-import MobileMenu from "../menu";
+import Link from '../link';
+import Nav from '../nav';
+import MobileMenu from '../menu';
 
-import Logo from './../../assets/logo.png'
+import Logo from '../../assets/logo.png'
 import useStyles from './styles'
 
 const Header = ({ state }) => {
@@ -17,7 +17,9 @@ const Header = ({ state }) => {
     <>
       <div className={classes.header}>
         <StyledLink link="/">
-          <img src={Logo} alt={state.frontity.title}
+          <img
+            src={Logo}
+            alt={state.frontity.title}
             className={classes.headerImgLogo}
           />
           <div className={classes.headerSiteInfo}>
@@ -45,9 +47,23 @@ const Header = ({ state }) => {
           </div>
           <div className={classes.headerNav}>
             <ul className={classes.headerNavList}>
-              <li><a href="#">Nosotros</a></li>
+              <li>
+                <Link
+                  link="/sobre-nosotros/"
+                  aria-current="page"
+                >
+                  Nosotros
+                </Link>
+              </li>
               <li><a href="#">Servicios</a></li>
-              <li><Button>Consultar</Button></li>
+              <li>
+                <Link
+                  link="/contact-form-7/"
+                  aria-current="page"
+                >
+                  <Button>Consultar</Button>
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

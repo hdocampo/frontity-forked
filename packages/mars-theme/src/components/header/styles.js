@@ -5,8 +5,8 @@ import {
   GREEN_PALE,
   GREEN_LIGHT,
   WHITE,
-  BLACK
-} from '../../constants'
+  BUTTON_STYLE,
+} from '../../styles'
 
 export default makeStyles({
   header: {
@@ -29,13 +29,13 @@ export default makeStyles({
   },
   headerContactItem: {
     display: 'flex',
-    marginRight: '40px'
+    marginRight: 40
   },
   headerContactItemContent: {
     display: 'flex',
-    fontSize: '12px',
+    fontSize: 12,
     '& p > span': {
-      fontSize: '16px',
+      fontSize: 16,
       fontFamily: 'Roboto-Bold'
     }
   },
@@ -49,47 +49,37 @@ export default makeStyles({
   headerNav: {
     display: 'flex',
     justifyContent: 'flex-end',
-    marginTop: '45px'
+    marginTop: 45
   },
   headerNavList: {
     display: 'flex',
     alignItems: 'center',
     margin: 0,
     padding: 0,
-    '&, & > li' : {
+    '&, & > li': {
       listStyle: 'none'
     },
-    '& > li' : {
-      marginRight: '45px',
+    '& > li': {
+      marginRight: 45,
       textTransform: 'uppercase',
-      fontSize: '18px'
+      fontSize: 18
     },
     '& a': {
       color: GREEN_PRIMARY,
       fontFamily: 'RobotoCondensed-Regular',
-      '&:hover' : {
+      '&:hover': {
         color: GREEN_LIGHT
       }
     },
-    '& button' : {
-      fontFamily: 'RobotoCondensed-Bold',
-      backgroundColor: GREEN_LIGHT,
-      color: WHITE,
-      padding: '13px 29px 12px',
-      fontSize: 'inherit',
-      borderRadius: '10px',
-      lineHeight: '1em',
-      '&:hover' : {
-        backgroundColor: GREEN_PRIMARY
-      }
-    },
+    '& button' : BUTTON_STYLE,
   },
   headerContactIcon: {
     color: GREEN_PRIMARY,
     fontSize: '32px !important',
-    padding: '8px',
-    borderRadius: '30px',
+    padding: 8,
+    borderRadius: 30,
     backgroundColor: GREEN_PALE,
-    marginRight: '14px'
+    marginRight: 14,
+    overflow: 'visible'
   }
 });

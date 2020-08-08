@@ -64,7 +64,6 @@ const globalStyles = css`
   }
   a,
   a:visited {
-    color: inherit;
     text-decoration: none;
   }
 
@@ -93,8 +92,8 @@ const Theme = ({ state, libraries }) => {
 
   useEffect(() => {
     window.addEventListener('load', () => {
-      authPrompt();
-      // setAuth(true)
+      // authPrompt();
+      setAuth(true)
     })
   });
 
@@ -157,9 +156,10 @@ const Theme = ({ state, libraries }) => {
         {/* Add some metatags to the <head> of the HTML. */}
         <Title />
         <Head>
+          <html lang="es" />
           <meta name="description" content={state.frontity.description} />
           <meta name="keywords" content="curacion" />
-          <html lang="es" />
+          <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet" />
         </Head>
 
         {/* Add some global styles for the whole site, like body or a's.
@@ -167,9 +167,11 @@ const Theme = ({ state, libraries }) => {
         <Global styles={globalStyles} />
 
         {/* Add the header of the site. */}
-        <HeadContainer>
-          <Header />
-        </HeadContainer>
+        <Container maxWidth="lg">
+          <HeadContainer>
+            <Header />
+          </HeadContainer>
+        </Container>
 
         {/* Add the main section. It renders a different component depending
       on the type of URL we are in. */}
@@ -179,14 +181,16 @@ const Theme = ({ state, libraries }) => {
               <Slider
                 items={items}
               />
-              <HomeContainer>
-                <FeaturedItems
-                  items={featuredList}
-                />
-                <ContactForm
-                  libraries={libraries}
-                />
-              </HomeContainer>
+              <Container maxWidth="lg">
+                <HomeContainer>
+                  <FeaturedItems
+                    items={featuredList}
+                  />
+                  <ContactForm
+                    libraries={libraries}
+                  />
+                </HomeContainer>
+              </Container>
             </HomeContent>
             <Loading when={data.isFetching} />
             {/* <List when={data.isArchive} /> */}
@@ -212,7 +216,6 @@ const HomeContainer = styled.div`
   display: flex;
   justify-content: center;
   align-self: center;
-  max-width: 1280px;
 `;
 
 const HomeContent = styled.div`
@@ -224,9 +227,4 @@ const HomeContent = styled.div`
 const Main = styled.div`
   display: flex;
   justify-content: center;
-  background-image: linear-gradient(
-    180deg,
-    rgba(66, 174, 228, 0.1),
-    rgba(66, 174, 228, 0)
-  );
 `;

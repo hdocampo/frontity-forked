@@ -19,7 +19,7 @@ const Slider = (props) => {
 
         <Button variant="contained" className={classes.sliderButton}>
           Agendar Consulta
-              </Button>
+        </Button>
       </div>
     )
   }

@@ -58,7 +58,7 @@ const Header = ({ state }) => {
               <li><a href="#">Servicios</a></li>
               <li>
                 <Link
-                  link="/contact-form-7/"
+                  link="/contactanos/"
                   aria-current="page"
                 >
                   <Button>Consultar</Button>
@@ -69,7 +69,7 @@ const Header = ({ state }) => {
         </div>
         <MobileMenu />
       </div>
-      <Nav />
+      {/* <Nav /> */}
     </>
   );
 };

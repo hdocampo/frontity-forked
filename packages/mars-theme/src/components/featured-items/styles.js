@@ -8,11 +8,13 @@ export default makeStyles({
     color: GREEN_SECONDARY,
     fontSize: 36,
     textAlign: 'center',
-    marginBottom: 45
+    marginBottom: 45,
+    fontFamily: '"Playfair Display", serif',
   },
   featuredList: {
     display: 'flex',
     flexWrap: 'wrap',
+    justifyContent: 'center'
   },
   featuredItem: {
     display: 'flex',

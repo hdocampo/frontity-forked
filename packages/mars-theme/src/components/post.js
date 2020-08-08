@@ -3,6 +3,9 @@ import { connect, styled } from "frontity";
 import Link from "./link";
 import List from "./list";
 import FeaturedMedia from "./featured-media";
+import { Container } from '@material-ui/core';
+
+import { GREEN_SECONDARY } from '../styles'
 
 const Post = ({ state, actions, libraries }) => {
   // Get information about the current URL.
@@ -29,7 +32,7 @@ const Post = ({ state, actions, libraries }) => {
 
   // Load the post, but only if the data is ready.
   return data.isReady ? (
-    <Container>
+    <Container maxWidth="lg">
       <div>
         <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
 
@@ -67,17 +70,23 @@ const Post = ({ state, actions, libraries }) => {
 
 export default connect(Post);
 
-const Container = styled.div`
-  width: 800px;
-  margin: 0;
-  padding: 24px;
-`;
+// const Container = styled.div`
+//   margin: 0;
+//   padding: 24px;
+// `;
 
 const Title = styled.h1`
   margin: 0;
   margin-top: 24px;
   margin-bottom: 8px;
-  color: rgba(12, 17, 43);
+  font-family: 'Playfair Display', serif;
+  font-weight: normal;
+  color: ${GREEN_SECONDARY};
+`;
+
+const Title2 = styled.h2`
+  font-family: 'Playfair Display', serif;
+  color: ${GREEN_SECONDARY};
 `;
 
 const StyledLink = styled(Link)`

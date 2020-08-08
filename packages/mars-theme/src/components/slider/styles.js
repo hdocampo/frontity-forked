@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
-import { 
-  MAIN_PADDING, 
-  GREEN_PRIMARY, 
+import {
+  MAIN_PADDING,
+  GREEN_PRIMARY,
   GREEN_PALE,
   GREEN_LIGHT,
   WHITE,
@@ -28,6 +28,9 @@ export default makeStyles({
     justifyContent: 'center',
     flexDirection: 'column',
     alignItems: 'center',
+    '& h2': {
+      fontFamily: '"Playfair Display", serif',
+    }
   },
   sliderButton: {
     color: GREEN_SECONDARY,
@@ -40,5 +43,5 @@ export default makeStyles({
     fontSize: 24,
     fontFamily: 'Roboto-Light',
     marginBottom: 51,
-  }
+  },
 });

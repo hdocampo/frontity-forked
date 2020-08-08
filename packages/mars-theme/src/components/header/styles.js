@@ -13,10 +13,11 @@ export default makeStyles({
     display: 'flex',
     flexDirection: 'row',
     width: '100%',
-    padding: MAIN_PADDING,
+    padding: `${MAIN_PADDING} 0`,
     paddingBottom: 0,
     boxSizing: 'border-box',
     justifyContent: 'space-around',
+    marginBottom: 25
   },
   headerImgLogo: {
     position: 'relative',

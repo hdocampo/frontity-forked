@@ -24,11 +24,7 @@ const settings = {
             ],
             [
               'Contacto',
-              '/contacto/'
-            ],
-            [
-              'Contact Form',
-              '/contact-form-7/'
+              '/contactanos/'
             ]
           ],
           featured: {

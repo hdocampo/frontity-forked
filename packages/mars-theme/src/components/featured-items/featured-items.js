@@ -52,8 +52,11 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   padding: 40px;
-  max-width: 60%;
   box-sizing: border-box;
+
+  @media(min-width: 960px) {
+    max-width: 60%;
+  }
 `;
 
 export default FeaturedItems;

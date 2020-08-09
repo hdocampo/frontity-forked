@@ -216,6 +216,10 @@ const HomeContainer = styled.div`
   display: flex;
   justify-content: center;
   align-self: center;
+
+  @media(max-width: 960px) {
+    flex-direction: column;
+  }
 `;
 
 const HomeContent = styled.div`

@@ -1,14 +1,14 @@
 import { makeStyles } from '@material-ui/core/styles';
-import { 
-  MAIN_PADDING, 
-  GREEN_PRIMARY, 
+import {
+  MAIN_PADDING,
+  GREEN_PRIMARY,
   GREEN_PALE,
   GREEN_LIGHT,
   WHITE,
   BUTTON_STYLE,
 } from '../../styles'
 
-export default makeStyles({
+export default makeStyles(theme => ({
   header: {
     display: 'flex',
     flexDirection: 'row',
@@ -17,7 +17,10 @@ export default makeStyles({
     paddingBottom: 0,
     boxSizing: 'border-box',
     justifyContent: 'space-around',
-    marginBottom: 25
+    marginBottom: 25,
+    [theme.breakpoints.down('md')]: {
+      flexDirection: 'column'
+    },
   },
   headerImgLogo: {
     position: 'relative',
@@ -30,7 +33,10 @@ export default makeStyles({
   },
   headerContactItem: {
     display: 'flex',
-    marginRight: 40
+    marginRight: 40,
+    [theme.breakpoints.down('md')]: {
+      flexDirection: 'column'
+    },
   },
   headerContactItemContent: {
     display: 'flex',
@@ -45,12 +51,18 @@ export default makeStyles({
     flexDirection: 'column'
   },
   headerContactItemList: {
-    display: 'flex'
+    display: 'flex',
+    [theme.breakpoints.down('md')]: {
+      justifyContent: 'center'
+    },
   },
   headerNav: {
     display: 'flex',
     justifyContent: 'flex-end',
-    marginTop: 45
+    marginTop: 45,
+    [theme.breakpoints.down('md')]: {
+      justifyContent: 'center'
+    },
   },
   headerNavList: {
     display: 'flex',
@@ -72,7 +84,7 @@ export default makeStyles({
         color: GREEN_LIGHT
       }
     },
-    '& button' : BUTTON_STYLE,
+    '& button': BUTTON_STYLE,
   },
   headerContactIcon: {
     color: GREEN_PRIMARY,
@@ -83,4 +95,4 @@ export default makeStyles({
     marginRight: 14,
     overflow: 'visible'
   }
-});
+}));

@@ -23,6 +23,7 @@
     "axios": "^0.19.2",
     "frontity": "^1.10.0",
     "frontity-contact-form-7": "^0.1.7",
+    "react-anchor-link-smooth-scroll": "^1.0.12",
     "react-material-ui-carousel": "^1.7.1"
   },
   "devDependencies": {

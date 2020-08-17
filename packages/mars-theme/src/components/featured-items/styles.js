@@ -1,9 +1,20 @@
 import { makeStyles } from '@material-ui/core/styles';
 import {
-  GREEN_SECONDARY
+  GREEN_SECONDARY,
+  GREEN_PRIMARY
 } from '../../styles'
 
-export default makeStyles({
+export default makeStyles(theme => ({
+  featuredItemsContainer:{
+    display: 'flex',
+    flexDirection: 'column',
+    maxWidth: '100%',
+    paddingTop: 40,
+    [theme.breakpoints.up('md')]: {
+      maxWidth: '60%',
+      padding: 40,
+    }
+  },
   featuredHeading: {
     color: GREEN_SECONDARY,
     fontSize: 36,
@@ -18,9 +29,28 @@ export default makeStyles({
   },
   featuredItem: {
     display: 'flex',
-    maxWidth: '40%',
-    marginRight: 50,
-    marginBottom: 50
+    maxWidth: '90%',
+    flexBasis: 280,
+    flexGrow: 1,
+    marginBottom: 50, 
+    [theme.breakpoints.up('sm')]: {
+      marginRight: 45,
+      flexGrow: 0
+    },
+  },
+  featuredItemIconContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    minWidth: 93,
+    height: 93,
+    borderWidth: 2,
+    borderStyle: 'solid',
+    borderColor: GREEN_PRIMARY,
+    borderRadius: '50%'
+  },
+  featuredItemIcon: {
+    maxHeight: '50%'
   },
   featuredItemTitle: {
     color: GREEN_SECONDARY,
@@ -37,4 +67,4 @@ export default makeStyles({
     flexDirection: 'column',
     marginLeft: 25
   }
-});
+}));

@@ -13,7 +13,10 @@ const ContactForm = ({ libraries }) => {
   });
 
   return (
-    <div className={classes.contactForm}>
+    <div
+      className={classes.contactForm}
+      id="contact-form-section"
+    >
       <Typography variant="h4" className={classes.contactFormTitle}>Coordina tu consulta</Typography>
       {formHTML ? <Html2React html={formHTML} /> : 'cargando formulario...'}
     </div>

@@ -9,7 +9,7 @@ import {
   GREEN_SECONDARY
 } from '../../styles'
 
-export default makeStyles({
+export default makeStyles(theme => ({
   sliderContainer: {
     width: '100%',
     height: '60vh',
@@ -30,6 +30,11 @@ export default makeStyles({
     alignItems: 'center',
     '& h2': {
       fontFamily: '"Playfair Display", serif',
+      padding: '0 40px',
+      [theme.breakpoints.down('xs')]: {
+        fontSize: 32,
+        maxWidth: '60vw'
+      },
     }
   },
   sliderButton: {
@@ -43,5 +48,9 @@ export default makeStyles({
     fontSize: 24,
     fontFamily: 'Roboto-Light',
     marginBottom: 51,
+    [theme.breakpoints.down('xs')]: {
+      fontSize: 14,
+      maxWidth: '60%'
+    },
   },
-});
+}));

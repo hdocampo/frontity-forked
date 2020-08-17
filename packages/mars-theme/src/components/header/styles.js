@@ -11,7 +11,6 @@ import {
 export default makeStyles(theme => ({
   header: {
     display: 'flex',
-    flexDirection: 'row',
     width: '100%',
     padding: `${MAIN_PADDING} 0`,
     paddingBottom: 0,
@@ -19,12 +18,25 @@ export default makeStyles(theme => ({
     justifyContent: 'space-around',
     marginBottom: 25,
     [theme.breakpoints.down('md')]: {
-      flexDirection: 'column'
+      flexDirection: 'column',
+    },
+    [theme.breakpoints.down('sm')]: {
+      alignItems: 'center',
+      paddingTop: 10
+    },
+    [theme.breakpoints.down('xs')]: {
+      '& a': {
+        maxWidth: '80vw'
+      }
     },
   },
   headerImgLogo: {
     position: 'relative',
-    zIndex: 2
+    zIndex: 2,
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      width: 'inherit',
+    }
   },
   headerSiteInfo: {
     position: 'absolute',
@@ -35,7 +47,11 @@ export default makeStyles(theme => ({
     display: 'flex',
     marginRight: 40,
     [theme.breakpoints.down('md')]: {
-      flexDirection: 'column'
+      flexDirection: 'column',
+    },
+    [theme.breakpoints.down('xs')]: {
+      marginRight: 10,      
+      outline: 'none'
     },
   },
   headerContactItemContent: {
@@ -44,16 +60,45 @@ export default makeStyles(theme => ({
     '& p > span': {
       fontSize: 16,
       fontFamily: 'Roboto-Bold'
+    },
+    '& > div': {
+      [theme.breakpoints.down('xs')]: {
+        display: 'none'
+      },
     }
+  },
+  headerContactMobileInfo: {
+    display: 'block',
+    fontSize: 16,
+    width: '100%',
+    textAlign: 'center',
+    '& span': {
+      fontFamily: 'Roboto-Bold'
+    },
+    [theme.breakpoints.up('sm')]: {
+      display: 'none'
+    },
   },
   headerContact: {
     display: 'flex',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    [theme.breakpoints.down('md')]: {
+      margin: '20px 0',
+    },
+    [theme.breakpoints.down('xs')]: {
+      flexDirection: 'row',      
+      width: '100%',
+      justifyContent: 'center'
+    }
   },
   headerContactItemList: {
     display: 'flex',
     [theme.breakpoints.down('md')]: {
-      justifyContent: 'center'
+      justifyContent: 'center',
+      marginBottom: 40,
+    },
+    [theme.breakpoints.down('xs')]: {
+      marginBottom: 0,
     },
   },
   headerNav: {
@@ -61,7 +106,8 @@ export default makeStyles(theme => ({
     justifyContent: 'flex-end',
     marginTop: 45,
     [theme.breakpoints.down('md')]: {
-      justifyContent: 'center'
+      justifyContent: 'center',
+      marginTop: 0,
     },
   },
   headerNavList: {
@@ -75,7 +121,16 @@ export default makeStyles(theme => ({
     '& > li': {
       marginRight: 45,
       textTransform: 'uppercase',
-      fontSize: 18
+      fontSize: 18,
+      [theme.breakpoints.down('xs')]: {
+        display: 'none',
+        '&:last-of-type': {
+          display: 'flex',
+          marginRight: 0,
+          marginLeft: 10,
+          justifyContent: 'center'
+        }
+      },
     },
     '& a': {
       color: GREEN_PRIMARY,
@@ -93,6 +148,14 @@ export default makeStyles(theme => ({
     borderRadius: 30,
     backgroundColor: GREEN_PALE,
     marginRight: 14,
-    overflow: 'visible'
+    overflow: 'visible',
+    [theme.breakpoints.down('xs')]: {
+      marginRight: 0,
+      transform: 'scale(0.9)',
+      '&.active': {
+        backgroundColor: GREEN_LIGHT,
+        color: WHITE
+      }
+    }
   }
 }));

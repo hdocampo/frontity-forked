@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {
   Global, css, connect, styled, Head
 } from 'frontity';
-import { Container, Typography } from '@material-ui/core';
+import { Container, CircularProgress } from '@material-ui/core';
 
 // import Roboto from "../assets/fonts/Roboto-Regular.ttf";
 import Switch from '@frontity/components/switch';
@@ -20,7 +20,7 @@ import ContactForm from './contact-form/contact-form';
 import Post from './post';
 import Loading from './loading';
 import Title from './title';
-import List from './list';
+import Footer from './footer/footer';
 import PageError from './page-error';
 // import useStyles from './styles'
 
@@ -93,7 +93,8 @@ const Theme = ({ state, libraries }) => {
   useEffect(() => {
     window.addEventListener('load', () => {
       // authPrompt();
-      setAuth(true)
+      console.log('all LOADED!')
+      setAuth(true);
     })
   });
 
@@ -142,9 +143,7 @@ const Theme = ({ state, libraries }) => {
           alignItems: 'center'
         }}
         >
-          <h2>
-            Cargando elementos de pagina
-          </h2>
+          <p>Loading elements...</p>
         </div>
       </>
     )
@@ -169,7 +168,10 @@ const Theme = ({ state, libraries }) => {
         {/* Add the header of the site. */}
         <Container maxWidth="lg">
           <HeadContainer>
-            <Header />
+            <Header
+              libraries={libraries}
+              isHome={data.isHome}
+            />
           </HeadContainer>
         </Container>
 
@@ -181,7 +183,7 @@ const Theme = ({ state, libraries }) => {
               <Slider
                 items={items}
               />
-              <Container maxWidth="lg">
+              <Container maxWidth="lg" disableGutters>
                 <HomeContainer>
                   <FeaturedItems
                     items={featuredList}
@@ -197,6 +199,7 @@ const Theme = ({ state, libraries }) => {
             <Post when={data.isPostType} />
             <PageError when={data.isError} />
           </Switch>
+          <Footer />
         </Main>
       </>
     );
@@ -231,4 +234,5 @@ const HomeContent = styled.div`
 const Main = styled.div`
   display: flex;
   justify-content: center;
+  flex-direction: column;
 `;

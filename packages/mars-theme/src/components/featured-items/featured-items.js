@@ -1,6 +1,6 @@
 import React from 'react';
 import { styled } from 'frontity';
-import { Typography } from '@material-ui/core';
+import { Typography, Container } from '@material-ui/core';
 import useStyles from './styles'
 
 const FeaturedItems = (props) => {
@@ -8,12 +8,15 @@ const FeaturedItems = (props) => {
   const { items } = props;
 
   return (
-    <Container>
+    <Container
+      className={classes.featuredItemsContainer}
+      id="featured-items-section"
+    >
       <Typography
         component="h4"
         className={classes.featuredHeading}
       >
-        Parte de lo que brindamos:
+        Mirá lo que ofrecemos:
       </Typography>
       <div className={classes.featuredList}>
         {
@@ -22,10 +25,13 @@ const FeaturedItems = (props) => {
               className={classes.featuredItem}
               key={index}
             >
-              <img
-                alt={item.description}
-                src={require(`./../../assets/${item.icon}.svg`)}
-              />
+              <div className={classes.featuredItemIconContainer}>
+                <img
+                  alt={item.description}
+                  src={require(`./../../assets/${item.icon}.svg`)}
+                  className={classes.featuredItemIcon}
+                />
+              </div>
               <div className={classes.featuredItemTxtContainer}>
                 <Typography
                   component="h6"
@@ -48,15 +54,15 @@ const FeaturedItems = (props) => {
   )
 }
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 40px;
-  box-sizing: border-box;
+// const Container = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   padding: 40px;
+//   box-sizing: border-box;
 
-  @media(min-width: 960px) {
-    max-width: 60%;
-  }
-`;
+//   @media(min-width: 960px) {
+//     max-width: 60%;
+//   }
+// `;
 
 export default FeaturedItems;

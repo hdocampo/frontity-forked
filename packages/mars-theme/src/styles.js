@@ -5,7 +5,9 @@ export const WHITE = '#fff';
 export const GREEN_PRIMARY = '#6BB42E';
 export const GREEN_SECONDARY = '#056734';
 export const GREEN_PALE = '#F7F8E4';
-export const GREEN_LIGHT = '#00BA9E'
+export const GREEN_LIGHT = '#00BA9E';
+export const GREEN_THIRD = '#358A33';
+export const YELLOW_PALE = '#E1E289'
 
 export const MAIN_PADDING = '40px'
 

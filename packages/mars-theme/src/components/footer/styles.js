@@ -3,7 +3,7 @@ import {
   GREEN_SECONDARY,
   GREEN_THIRD,
   MAIN_PADDING,
-  YELLOW_PALE,
+  FONT_ROBOTO_CONDENSED,
   GREEN_PRIMARY,
 } from '../../styles'
 
@@ -45,8 +45,8 @@ export default makeStyles(theme => ({
     color: GREEN_PRIMARY,
     fontSize: 20,
     textTransform: 'uppercase',
-    fontFamily: 'RobotoCondensed-Regular',
     marginBottom: 14,
+    ...FONT_ROBOTO_CONDENSED.REGULAR
   },
   footerSocialIcon: {
     color: GREEN_SECONDARY,

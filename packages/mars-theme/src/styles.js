@@ -9,10 +9,43 @@ export const GREEN_LIGHT = '#00BA9E';
 export const GREEN_THIRD = '#358A33';
 export const YELLOW_PALE = '#E1E289'
 
-export const MAIN_PADDING = '40px'
+export const MAIN_PADDING = '40px';
+
+const ROBOTO_FAMILY = '"Roboto", sans-serif';
+const ROBOTO_CONDENSED = '"Roboto Condensed", sans-serif';
+
+export const FONT_ROBOTO = {
+  LIGHT: {
+    fontFamily: ROBOTO_FAMILY,
+    fontWeight: 300
+  },
+  REGULAR: {
+    fontFamily: ROBOTO_FAMILY,
+    fontWeight: 500
+  },
+  BOLD: {
+    fontFamily: ROBOTO_FAMILY,
+    fontWeight: 700
+  }
+}
+
+export const FONT_ROBOTO_CONDENSED = {
+  LIGHT: {
+    fontFamily: ROBOTO_CONDENSED,
+    fontWeight: 300
+  },
+  REGULAR: {
+    fontFamily: ROBOTO_CONDENSED,
+    fontWeight: 400
+  },
+  BOLD: {
+    fontFamily: ROBOTO_CONDENSED,
+    fontWeight: 700
+  }
+}
 
 export const BUTTON_STYLE = {
-  fontFamily: 'RobotoCondensed-Bold',
+  ...FONT_ROBOTO_CONDENSED.BOLD,
   backgroundColor: GREEN_LIGHT,
   color: WHITE,
   padding: '13px 29px 12px',
@@ -25,4 +58,11 @@ export const BUTTON_STYLE = {
   '&:hover': {
     backgroundColor: GREEN_PRIMARY
   }
+}
+
+export const BUTTON_STYLE_LIGHT = {
+  color: GREEN_SECONDARY,
+  backgroundColor: GREEN_PALE,
+  fontSize: 18,
+  ...FONT_ROBOTO_CONDENSED.REGULAR
 }

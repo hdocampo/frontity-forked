@@ -1,12 +1,8 @@
 import { makeStyles } from '@material-ui/core/styles';
 import {
-  MAIN_PADDING,
-  GREEN_PRIMARY,
-  GREEN_PALE,
-  GREEN_LIGHT,
   WHITE,
-  BLACK,
-  GREEN_SECONDARY
+  FONT_ROBOTO,
+  BUTTON_STYLE_LIGHT
 } from '../../styles'
 
 export default makeStyles(theme => ({
@@ -31,6 +27,9 @@ export default makeStyles(theme => ({
     '& h2': {
       fontFamily: '"Playfair Display", serif',
       padding: '0 40px',
+      [theme.breakpoints.down('sm')]: {
+        fontSize: 38
+      },
       [theme.breakpoints.down('xs')]: {
         fontSize: 32,
         maxWidth: '60vw'
@@ -38,16 +37,18 @@ export default makeStyles(theme => ({
     }
   },
   sliderButton: {
-    color: GREEN_SECONDARY,
-    backgroundColor: GREEN_PALE,
-    fontFamily: 'RobotoCondensed-Regular',
-    fontSize: 18
+    ...BUTTON_STYLE_LIGHT,
   },
   sliderText: {
     maxWidth: '40%',
     fontSize: 24,
-    fontFamily: 'Roboto-Light',
     marginBottom: 51,
+    ...FONT_ROBOTO.LIGHT,
+    [theme.breakpoints.down('sm')]: {
+      fontSize: 18,
+      maxWidth: '60%',
+      marginBottom: 20
+    },
     [theme.breakpoints.down('xs')]: {
       fontSize: 14,
       maxWidth: '60%'

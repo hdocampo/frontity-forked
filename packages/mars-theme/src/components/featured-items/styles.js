@@ -1,7 +1,9 @@
 import { makeStyles } from '@material-ui/core/styles';
 import {
   GREEN_SECONDARY,
-  GREEN_PRIMARY
+  GREEN_PRIMARY,
+  FONT_ROBOTO,
+  FONT_ROBOTO_CONDENSED
 } from '../../styles'
 
 export default makeStyles(theme => ({
@@ -54,13 +56,13 @@ export default makeStyles(theme => ({
   },
   featuredItemTitle: {
     color: GREEN_SECONDARY,
-    fontFamily: 'RobotoCondensed-Regular',
+    ...FONT_ROBOTO_CONDENSED.REGULAR,
     fontSize: 20,
     textTransform: 'uppercase'
   },
   featuredItemText: {
     fontSize: 14,
-    fontFamily: 'Roboto-Light'
+    ...FONT_ROBOTO.LIGHT
   },
   featuredItemTxtContainer: {
     display: 'flex',

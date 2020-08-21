@@ -4,16 +4,11 @@ import {
 } from 'frontity';
 import { Container, CircularProgress } from '@material-ui/core';
 
-// import Roboto from "../assets/fonts/Roboto-Regular.ttf";
 import Switch from '@frontity/components/switch';
-import RobotoLight from '../assets/fonts/Roboto-Light.ttf';
-import RobotoMedium from '../assets/fonts/Roboto-Medium.ttf';
-// import RobotoBold from "../assets/fonts/Roboto-Bold.ttf";
-import RobotoCondensedBold from '../assets/fonts/RobotoCondensed-Bold.ttf';
-import RobotoCondensed from '../assets/fonts/RobotoCondensed-Regular.ttf';
 
 import Header from './header/header';
 import FeaturedItems from './featured-items/featured-items';
+import Infrared from './infrared/infrared';
 import Slider from './slider/slider';
 import ContactForm from './contact-form/contact-form';
 
@@ -26,38 +21,6 @@ import PageError from './page-error';
 
 const globalStyles = css`
 
-  @font-face {
-    font-family: "Roboto-Light";
-    font-style: normal;
-    font-weight: normal;
-    font-display: fallback;
-    src: url("${RobotoLight}") format("truetype");
-  }
-
-  @font-face {
-    font-family: "Roboto-Bold";
-    font-style: normal;
-    font-weight: normal;
-    font-display: fallback;
-    src: url("${RobotoMedium}") format("truetype");
-  }
-
-  @font-face {
-    font-family: "RobotoCondensed-Bold";
-    font-style: normal;
-    font-weight: normal;
-    font-display: fallback;
-    src: url("${RobotoCondensedBold}") format("truetype");
-  }
-
-  @font-face {
-    font-family: "RobotoCondensed-Regular";
-    font-style: normal;
-    font-weight: normal;
-    font-display: fallback;
-    src: url("${RobotoCondensed}") format("truetype");
-  }
-
   body {
     margin: 0;
     font-family: 'Roboto-Light', sans-serif;
@@ -68,11 +31,9 @@ const globalStyles = css`
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: serif;
+    font-family: 'Playfair Display', serif,
   }
 `;
-
-const passwordAuth = 'LetiJuli';
 
 /**
  * Theme is the root React component of our theme. The one we will export
@@ -83,29 +44,21 @@ const Theme = ({ state, libraries }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
   const [authOK, setAuth] = useState(false);
-  const [userInput, setInput] = useState(undefined);
-  const authPrompt = () => {
-    if (userInput === undefined) {
-      setInput(window.prompt('Por favor ingrese la clave para ver el sitio:'))
-    }
-  }
 
   useEffect(() => {
     window.addEventListener('load', () => {
       // authPrompt();
-      console.log('all LOADED!')
+      console.log('all assets loaded')
       setAuth(true);
     })
   });
 
-  useEffect(() => {
-    userInput === passwordAuth ? setAuth(true) : null;
-  }, [userInput]);
-
   const items = [
     {
       name: 'Volvemos para cuidarte',
-      description: 'Porque tu dolor no puede esperar, te esperamos nuevamente en nuestra clínica, con todas las medidas santitarias para cuidarte y cuidarnos.'
+      description: 'Porque tu dolor no puede esperar, te esperamos nuevamente en nuestra clínica, con todas las medidas santitarias para cuidarte y cuidarnos.',
+      buttonLink: '#contact-form-section',
+      buttonText: 'Agendar Consulta',
     }
   ]
 
@@ -157,8 +110,9 @@ const Theme = ({ state, libraries }) => {
         <Head>
           <html lang="es" />
           <meta name="description" content={state.frontity.description} />
-          <meta name="keywords" content="curacion" />
+          <meta name="keywords" content={state.frontity.keywords} />
           <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Roboto:wght@300;500;700&display=swap" rel="stylesheet" />
         </Head>
 
         {/* Add some global styles for the whole site, like body or a's.
@@ -191,6 +145,7 @@ const Theme = ({ state, libraries }) => {
                   <ContactForm
                     libraries={libraries}
                   />
+                  <Infrared />
                 </HomeContainer>
               </Container>
             </HomeContent>
@@ -219,6 +174,7 @@ const HomeContainer = styled.div`
   display: flex;
   justify-content: center;
   align-self: center;
+  flex-wrap: wrap;
 
   @media(max-width: 960px) {
     flex-direction: column;

@@ -6,6 +6,8 @@ import {
   GREEN_LIGHT,
   WHITE,
   BUTTON_STYLE,
+  FONT_ROBOTO_CONDENSED,
+  FONT_ROBOTO
 } from '../../styles'
 
 export default makeStyles(theme => ({
@@ -39,27 +41,34 @@ export default makeStyles(theme => ({
     }
   },
   headerSiteInfo: {
-    position: 'absolute',
-    zIndex: 1,
-    top: '-90px'
+    opacity: 0,
+    zIndex: '-1',
+    position: 'absolute'
   },
   headerContactItem: {
     display: 'flex',
     marginRight: 40,
-    [theme.breakpoints.down('md')]: {
-      flexDirection: 'column',
+    [theme.breakpoints.down('sm')]: {
+      '&:last-of-type': {
+        marginRight: 0
+      }
     },
     [theme.breakpoints.down('xs')]: {
-      marginRight: 10,      
+      marginRight: 10,
       outline: 'none'
     },
   },
   headerContactItemContent: {
     display: 'flex',
     fontSize: 12,
+    [theme.breakpoints.down('sm')]: {
+      flexDirection: 'column',
+      textAlign: 'center',
+      alignItems: 'center',
+    },
     '& p > span': {
       fontSize: 16,
-      fontFamily: 'Roboto-Bold'
+      ...FONT_ROBOTO.BOLD
     },
     '& > div': {
       [theme.breakpoints.down('xs')]: {
@@ -73,7 +82,7 @@ export default makeStyles(theme => ({
     width: '100%',
     textAlign: 'center',
     '& span': {
-      fontFamily: 'Roboto-Bold'
+      ...FONT_ROBOTO.BOLD
     },
     [theme.breakpoints.up('sm')]: {
       display: 'none'
@@ -86,7 +95,7 @@ export default makeStyles(theme => ({
       margin: '20px 0',
     },
     [theme.breakpoints.down('xs')]: {
-      flexDirection: 'row',      
+      flexDirection: 'row',
       width: '100%',
       justifyContent: 'center'
     }
@@ -134,7 +143,7 @@ export default makeStyles(theme => ({
     },
     '& a': {
       color: GREEN_PRIMARY,
-      fontFamily: 'RobotoCondensed-Regular',
+      ...FONT_ROBOTO_CONDENSED.REGULAR,
       '&:hover': {
         color: GREEN_LIGHT
       }
@@ -149,6 +158,9 @@ export default makeStyles(theme => ({
     backgroundColor: GREEN_PALE,
     marginRight: 14,
     overflow: 'visible',
+    [theme.breakpoints.down('xs')]: {
+      marginRight: 0
+    },
     [theme.breakpoints.down('xs')]: {
       marginRight: 0,
       transform: 'scale(0.9)',

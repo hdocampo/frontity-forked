@@ -1,4 +1,5 @@
 import React from "react";
+import AnchorLink from 'react-anchor-link-smooth-scroll'
 import Carousel from 'react-material-ui-carousel'
 import { Button, Typography } from '@material-ui/core';
 import useStyles from './styles'
@@ -7,9 +8,7 @@ const Slider = (props) => {
   const classes = useStyles();
   const { items } = props;
 
-  const Item = (props) => {
-    const { item } = props;
-
+  const Item = (item) => {
     return (
       <div className={classes.slider}>
         <Typography variant="h2" component="h2" gutterBottom>
@@ -17,9 +16,14 @@ const Slider = (props) => {
         </Typography>
         <Typography component="p" className={classes.sliderText}>{item.description}</Typography>
 
-        <Button variant="contained" className={classes.sliderButton}>
-          Agendar Consulta
-        </Button>
+        <AnchorLink href={item.buttonLink}>
+          <Button
+            variant="contained"
+            className={classes.sliderButton}
+          >
+            {item.buttonText}
+          </Button>
+        </AnchorLink>
       </div>
     )
   }
@@ -28,11 +32,11 @@ const Slider = (props) => {
     <Carousel
       className={classes.sliderContainer}
       indicators={false}
-      navButtonsAlwaysVisible={true}
-      fullHeightHover={true}
+      navButtonsAlwaysVisible
+      fullHeightHover
     >
       {
-        items.map((item, i) => <Item key={i} item={item} />)
+        items.map((item, i) => <Item key={i} {...item} />)
       }
     </Carousel>
   )

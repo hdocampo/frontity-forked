@@ -3,7 +3,8 @@ import {
   GREEN_PALE,
   GREEN_SECONDARY,
   GREEN_PRIMARY,
-  BUTTON_STYLE
+  BUTTON_STYLE,
+  FONT_ROBOTO
 } from '../../styles'
 
 export default makeStyles({
@@ -29,7 +30,7 @@ export default makeStyles({
         }
       },
       '& label': {
-        fontFamily: 'Roboto-Light',
+        ...FONT_ROBOTO.LIGHT,
         fontSize: 16,
         color: GREEN_PRIMARY,
         marginBottom: 12,

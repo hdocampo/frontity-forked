@@ -1,7 +1,8 @@
 import React from "react";
-import AnchorLink from 'react-anchor-link-smooth-scroll'
-import Carousel from 'react-material-ui-carousel'
+import AnchorLink from 'react-anchor-link-smooth-scroll';
+import Carousel from 'react-material-ui-carousel';
 import { Button, Typography } from '@material-ui/core';
+
 import useStyles from './styles'
 
 const Slider = (props) => {

@@ -7,7 +7,7 @@ import {
 } from '../../styles'
 
 export default makeStyles(theme => ({
-  featuredItemsContainer:{
+  featuredItemsContainer: {
     display: 'flex',
     flexDirection: 'column',
     maxWidth: '100%',
@@ -34,10 +34,12 @@ export default makeStyles(theme => ({
     maxWidth: '90%',
     flexBasis: 280,
     flexGrow: 1,
-    marginBottom: 50, 
+    marginBottom: 50,
     [theme.breakpoints.up('sm')]: {
-      marginRight: 45,
-      flexGrow: 0
+      flexGrow: 0,
+      '&:nth-child(odd)': {
+        marginRight: 45
+      }
     },
   },
   featuredItemIconContainer: {

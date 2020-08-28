@@ -67,6 +67,7 @@ const Header = ({ state, libraries, isHome }) => {
           </div>
           <div className={classes.headerNav}>
             <ul className={classes.headerNavList}>
+              {/* 
               <li>
                 <Link
                   link="/sobre-nosotros/"
@@ -77,8 +78,9 @@ const Header = ({ state, libraries, isHome }) => {
               </li>
               <li>
                 <AnchorLink href="#featured-items-section">Servicios</AnchorLink>
-                {/* <a href="#">Servicios</a> */}
-              </li>
+                <a href="#">Servicios</a> 
+              </li> 
+                */}
               <li>
                 {
                   isHome

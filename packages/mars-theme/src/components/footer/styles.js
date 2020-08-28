@@ -14,6 +14,7 @@ export default makeStyles(theme => ({
     width: '100%',
     backgroundColor: GREEN_THIRD,
     padding: MAIN_PADDING,
+    marginTop: `calc(${MAIN_PADDING} * 2)`,
     minHeight: 160,
     [theme.breakpoints.up('md')]: {
       flexDirection: 'row',

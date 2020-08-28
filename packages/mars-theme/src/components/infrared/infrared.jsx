@@ -1,9 +1,20 @@
 import React from "react";
 import { Container, Typography, Button } from '@material-ui/core';
+import AnchorLink from 'react-anchor-link-smooth-scroll';
+
 import useStyles from './styles';
 
 const Infrared = (props) => {
+  const {
+    subtitle, 
+    title, 
+    text, 
+    link,
+    libraries
+  } = props;
   const classes = useStyles();
+  const Html2React = libraries.html2react.Component;
+
   return (
     <Container
       className={classes.infraredContainer}
@@ -14,26 +25,24 @@ const Infrared = (props) => {
           className={classes.infraredTitle}
         >
           <Typography component="span">
-            Pioneros
-            <br />
-            en Uruguay
+            <Html2React html={subtitle} />
           </Typography>
-          Infrared
+          {title}
         </Typography>
         <Typography
           className={classes.infaredContentText}
         >
-          INFRARED es la última tecnología en sensores infrarrojos
-          y nos permite generar imágenes térmicas 3D de alta resolución
-          en tiempo real.
+          <Html2React html={text} />
         </Typography>
-        <Button
-          className={classes.infraredButton}
-          variant="contained"
-          size="medium"
-        >
-          Consultar
-        </Button>
+        <AnchorLink href={link}>
+          <Button
+            className={classes.infraredButton}
+            variant="contained"
+            size="medium"
+          >
+            Consultar
+          </Button>
+        </AnchorLink>
       </div>
       <div className={classes.infraredImage} />
     </Container>

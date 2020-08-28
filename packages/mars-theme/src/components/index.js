@@ -5,6 +5,7 @@ import {
 import { Container, CircularProgress } from '@material-ui/core';
 
 import Switch from '@frontity/components/switch';
+import Script from "@frontity/components/script";
 
 import Header from './header/header';
 import FeaturedItems from './featured-items/featured-items';
@@ -20,7 +21,6 @@ import PageError from './page-error';
 // import useStyles from './styles'
 
 const globalStyles = css`
-
   body {
     margin: 0;
     font-family: 'Roboto-Light', sans-serif;
@@ -45,13 +45,14 @@ const Theme = ({ state, libraries }) => {
   const data = state.source.get(state.router.link);
   const [authOK, setAuth] = useState(false);
 
-  useEffect(() => {
-    window.addEventListener('load', () => {
-      // authPrompt();
-      console.log('all assets loaded')
-      setAuth(true);
-    })
-  });
+  const infraredContent = {
+    subtitle: 'Pioneros <br /> en Uruguay',
+    title: 'Infrared',
+    text: `INFRARED es la última tecnología en sensores infrarrojos
+    y nos permite generar imágenes térmicas 3D de alta resolución
+    en tiempo real.`,
+    buttonLink: '#contact-form-section',
+  }
 
   const items = [
     {
@@ -86,18 +87,41 @@ const Theme = ({ state, libraries }) => {
     },
   ]
 
+  const handleAssetsLoaded = () => {
+    setAuth(true);
+  }
+
+  const ScriptExecute = () => (
+    <Script code={`
+        window.addEventListener('load', () => {
+          ${handleAssetsLoaded()} 
+          console.log('all assets loaded')
+        })
+      `}
+    />
+  )
+
   if (!authOK) {
     return (
       <>
-        <div style={{
-          height: '100vh',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center'
-        }}
-        >
-          <p>Loading elements...</p>
-        </div>
+        <Title />
+        <Head>
+          <html lang="es" />
+          <meta name="description" content={state.frontity.description} />
+          <meta name="keywords" content={state.frontity.keywords} />
+        </Head>
+        <Container maxWidth="lg">
+          <div style={{
+            height: '100vh',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}
+          >
+            <p>Loading elements...</p>
+          </div>
+        </Container>
+        <ScriptExecute />
       </>
     )
   }
@@ -111,7 +135,6 @@ const Theme = ({ state, libraries }) => {
           <html lang="es" />
           <meta name="description" content={state.frontity.description} />
           <meta name="keywords" content={state.frontity.keywords} />
-          <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet" />
           <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Roboto:wght@300;500;700&display=swap" rel="stylesheet" />
         </Head>
 
@@ -145,7 +168,13 @@ const Theme = ({ state, libraries }) => {
                   <ContactForm
                     libraries={libraries}
                   />
-                  <Infrared />
+                  <Infrared
+                    title={infraredContent.title}
+                    subtitle={infraredContent.subtitle}
+                    text={infraredContent.text}
+                    link={infraredContent.buttonLink}
+                    libraries={libraries}
+                  />
                 </HomeContainer>
               </Container>
             </HomeContent>

@@ -7,13 +7,16 @@ import {
   FONT_ROBOTO
 } from '../../styles'
 
-export default makeStyles({
+export default makeStyles(theme => ({
   contactFormContainer: {
     width: 50
   },
   contactForm: {
     backgroundColor: GREEN_PALE,
     padding: 50,
+    [theme.breakpoints.down('sm')]: {
+      order: 2,
+    },
     '& > *': {
       display: 'none'
     },
@@ -27,6 +30,9 @@ export default makeStyles({
         justifyContent: 'center',
         '&:last-of-type': {
           justifyContent: 'flex-end'
+        },
+        '&:nth-child(5)': {
+          display: 'none'
         }
       },
       '& label': {
@@ -59,4 +65,4 @@ export default makeStyles({
     textAlign: 'center',
     marginBottom: 45
   }
-});
+}));

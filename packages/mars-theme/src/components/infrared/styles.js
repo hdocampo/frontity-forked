@@ -18,6 +18,8 @@ export default makeStyles(theme => ({
       flexDirection: 'column',
       padding: `calc(${MAIN_PADDING} / 2)`,
       paddingBottom: 0,
+      order: 1,
+      marginBottom: MAIN_PADDING
     },
   },
   infraredTextContainer: {
@@ -60,12 +62,18 @@ export default makeStyles(theme => ({
       backgroundPositionX: 'center',
       minHeight: 'auto',
       minWidth: 'auto'
+    },
+    [theme.breakpoints.down('xs')]: {
+      display: 'none',
     }
   },
   infaredContentText: {
     fontSize: 20,
     ...FONT_ROBOTO.LIGHT,
     marginBottom: 45,
+    [theme.breakpoints.down('sm')]: {
+      fontSize: 16,
+    }
   },
   infraredButton: {
     ...BUTTON_STYLE_LIGHT,

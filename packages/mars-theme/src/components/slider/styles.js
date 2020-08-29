@@ -9,6 +9,7 @@ export default makeStyles(theme => ({
   sliderContainer: {
     width: '100%',
     height: '60vh',
+    minHeight: 410,
     '& > div, & > div > div': {
       height: '100%'
     }

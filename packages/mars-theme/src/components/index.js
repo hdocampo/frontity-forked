@@ -135,6 +135,7 @@ const Theme = ({ state, libraries }) => {
           <html lang="es" />
           <meta name="description" content={state.frontity.description} />
           <meta name="keywords" content={state.frontity.keywords} />
+          <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet" />
           <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Roboto:wght@300;500;700&display=swap" rel="stylesheet" />
         </Head>
 

@@ -39,7 +39,7 @@ const settings = {
       name: '@frontity/wp-source',
       state: {
         source: {
-          api: 'https://www.fisioespalda.com.uy/wp-json'
+          api: 'http://fisioespaldaweb.neoimage.net/wp-json'
         }
       }
     },

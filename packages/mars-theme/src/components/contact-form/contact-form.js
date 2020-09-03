@@ -9,7 +9,7 @@ const ContactForm = ({ libraries }) => {
   const [formHTML, setFormHTML] = useState(undefined);
 
   useEffect(() => {
-    getPage(376).then(response => setFormHTML(response.content.rendered))
+    getPage(8).then(response => setFormHTML(response.content.rendered))
   });
 
   return (

@@ -13,8 +13,8 @@ export default makeStyles(theme => ({
     maxWidth: '100%',
     paddingTop: 40,
     [theme.breakpoints.up('md')]: {
-      maxWidth: '60%',
-      padding: 40,
+      maxWidth: '55%',
+      padding: '40px 0',
     }
   },
   featuredHeading: {
@@ -27,7 +27,7 @@ export default makeStyles(theme => ({
   featuredList: {
     display: 'flex',
     flexWrap: 'wrap',
-    justifyContent: 'center'
+    justifyContent: 'space-around'
   },
   featuredItem: {
     display: 'flex',

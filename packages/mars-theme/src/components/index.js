@@ -56,8 +56,8 @@ const Theme = ({ state, libraries }) => {
 
   const items = [
     {
-      name: 'Volvemos para cuidarte',
-      description: 'Porque tu dolor no puede esperar, te esperamos nuevamente en nuestra clínica, con todas las medidas santitarias para cuidarte y cuidarnos.',
+      name: 'Nos encanta cuidarte',
+      description: 'Porque tu dolor no puede esperar, te esperamos en la clínica con todas las medidas de seguridad sanitaria para cuidarte y cuidarnos.',
       buttonLink: '#contact-form-section',
       buttonText: 'Agendar Consulta',
     }

@@ -47,7 +47,15 @@ export default makeStyles(theme => ({
   },
   headerContactItem: {
     display: 'flex',
-    marginRight: 40,
+    minWidth: 'calc(45% - 2%)',
+    paddingLeft: '3%',
+    marginBottom: 10,
+    '&:nth-child(2n)': {
+      marginLeft: 40,
+      [theme.breakpoints.down('xs')]: {
+        marginLeft: 0,
+      },
+    },
     [theme.breakpoints.down('sm')]: {
       '&:last-of-type': {
         marginRight: 0
@@ -55,12 +63,14 @@ export default makeStyles(theme => ({
     },
     [theme.breakpoints.down('xs')]: {
       marginRight: 10,
-      outline: 'none'
+      outline: 'none',
+      minWidth: 'auto',
     },
   },
   headerContactItemContent: {
     display: 'flex',
     fontSize: 12,
+    width: '100%',
     [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
       textAlign: 'center',
@@ -74,6 +84,21 @@ export default makeStyles(theme => ({
       [theme.breakpoints.down('xs')]: {
         display: 'none'
       },
+    },
+  },
+  headerItemTriangleWsp: {
+    position: 'absolute',
+    maxWidth: 15,
+    height: 'auto',
+    left: 1,
+    bottom: 3,
+    [theme.breakpoints.down('sm')]: {
+      bottom: '-1px',
+      left: '-1px',
+    },
+    [theme.breakpoints.down('xs')]: {
+      bottom: '-1px',
+      left: 2,
     }
   },
   headerContactMobileInfo: {
@@ -81,6 +106,8 @@ export default makeStyles(theme => ({
     fontSize: 16,
     width: '100%',
     textAlign: 'center',
+    marginBottom: 25,
+    marginTop: 10,
     '& span': {
       ...FONT_ROBOTO.BOLD
     },
@@ -90,56 +117,49 @@ export default makeStyles(theme => ({
   },
   headerContact: {
     display: 'flex',
-    flexDirection: 'column',
+    width: '90%',
+    paddingLeft: '90px',
     [theme.breakpoints.down('md')]: {
       margin: '20px 0',
+      paddingLeft: 0,
+    },
+    [theme.breakpoints.down('sm')]: {
+      paddingLeft: 0,
+      flexDirection: 'column',
     },
     [theme.breakpoints.down('xs')]: {
-      flexDirection: 'row',
+      // flexDirection: 'row',
       width: '100%',
-      justifyContent: 'center'
+      justifyContent: 'center',
+      marginBottom: 0,
     }
   },
   headerContactItemList: {
     display: 'flex',
+    maxWidth: '70%',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
     [theme.breakpoints.down('md')]: {
       justifyContent: 'center',
-      marginBottom: 40,
+      maxWidth: 'none',
+    },
+    [theme.breakpoints.down('sm')]: {
+      maxWidth: 'none',
     },
     [theme.breakpoints.down('xs')]: {
       marginBottom: 0,
     },
   },
-  headerNav: {
+  joinLink: {
     display: 'flex',
-    justifyContent: 'flex-end',
-    marginTop: 45,
+    justifyContent: 'center',
+    // marginTop: 45,
+    alignItems: 'center',
+    textTransform: 'uppercase',
+    fontSize: 18,
     [theme.breakpoints.down('md')]: {
       justifyContent: 'center',
       marginTop: 0,
-    },
-  },
-  headerNavList: {
-    display: 'flex',
-    alignItems: 'center',
-    margin: 0,
-    padding: 0,
-    '&, & > li': {
-      listStyle: 'none'
-    },
-    '& > li': {
-      marginRight: 45,
-      textTransform: 'uppercase',
-      fontSize: 18,
-      [theme.breakpoints.down('xs')]: {
-        display: 'none',
-        '&:last-of-type': {
-          display: 'flex',
-          marginRight: 0,
-          marginLeft: 10,
-          justifyContent: 'center'
-        }
-      },
     },
     '& a': {
       color: GREEN_PRIMARY,
@@ -150,6 +170,25 @@ export default makeStyles(theme => ({
     },
     '& button': BUTTON_STYLE,
   },
+  headerNavList: {
+    display: 'flex',
+    margin: 0,
+    padding: 0,
+    '&, & > li': {
+      listStyle: 'none'
+    },
+    '& > li': {
+      // marginRight: 45,
+      [theme.breakpoints.down('xs')]: {
+        display: 'none',
+        '&:last-of-type': {
+          display: 'flex',
+          marginRight: 0,
+          marginLeft: 10,
+        }
+      },
+    },
+  },
   headerContactIcon: {
     color: GREEN_PRIMARY,
     fontSize: '32px !important',
@@ -159,15 +198,12 @@ export default makeStyles(theme => ({
     marginRight: 14,
     overflow: 'visible',
     [theme.breakpoints.down('xs')]: {
-      marginRight: 0
-    },
-    [theme.breakpoints.down('xs')]: {
       marginRight: 0,
       transform: 'scale(0.9)',
       '&.active': {
         backgroundColor: GREEN_LIGHT,
         color: WHITE
       }
-    }
+    },
   }
 }));

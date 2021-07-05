@@ -16,11 +16,12 @@ const Header = ({ state, libraries, isHome }) => {
   const contactInfo = {
     phone: 'Llamanos <span>al 2203 15 15</span>',
     location: 'Encontranos en <span>Martín C. Martínez 3114</span>',
-    time: 'Horario: Lun. a Vie. <span>13:30 a 19:30</span>'
+    time: 'Horario: Lun. a Vie. <span>13:30 a 19:30</span>',
+    whatsapp: 'Agendate por Whatsapp al <span>098.03.15.15</span>',
   }
 
   const [activeInfo, setActiveInfo] = useState(contactInfo.phone);
-  const [activeSection, setActiveSection] = useState('phone');
+  const [activeSection, setActiveSection] = useState('');
 
   const changeActiveInfo = (contactInfoToShow) => {
     setActiveInfo(contactInfo[contactInfoToShow])
@@ -44,8 +45,15 @@ const Header = ({ state, libraries, isHome }) => {
         <div className={classes.headerContact}>
           <div className={classes.headerContactItemList}>
             <HeaderContactItem
+              message="Agendate por Whatsapp al"
+              number="098.03.15.15"
+              icon="whatsapp"
+              handleClick={() => changeActiveInfo('whatsapp')}
+              isActive={activeSection === 'whatsapp'}
+            />
+            <HeaderContactItem
               message="Llamanos al"
-              number="2203 15 15"
+              number="2203.15.15"
               icon="phone"
               handleClick={() => changeActiveInfo('phone')}
               isActive={activeSection === 'phone'}
@@ -65,41 +73,23 @@ const Header = ({ state, libraries, isHome }) => {
               isActive={activeSection === 'time'}
             />
           </div>
-          <div className={classes.headerNav}>
-            <ul className={classes.headerNavList}>
-              {/* 
-              <li>
-                <Link
-                  link="/sobre-nosotros/"
-                  aria-current="page"
-                >
-                  Nosotros
-                </Link>
-              </li>
-              <li>
-                <AnchorLink href="#featured-items-section">Servicios</AnchorLink>
-                <a href="#">Servicios</a> 
-              </li> 
-                */}
-              <li>
-                {
-                  isHome
-                    ? <AnchorLink href="#contact-form-section"><Button>Consultar</Button></AnchorLink>
-                    : (
-                      <Link
-                        link="/contactanos/"
-                        aria-current="page"
-                      >
-                        <Button>Consultar</Button>
-                      </Link>
-                    )
-                }
-              </li>
-            </ul>
+          <div className={classes.headerContactMobileInfo}>
+            <Html2React html={activeInfo} />
           </div>
-        </div>
-        <div className={classes.headerContactMobileInfo}>
-          <Html2React html={activeInfo} />
+          <div className={classes.joinLink}>
+            {
+              isHome
+                ? <AnchorLink href="#contact-form-section"><Button>Consultar</Button></AnchorLink>
+                : (
+                  <Link
+                    link="/contactanos/"
+                    aria-current="page"
+                  >
+                    <Button>Consultar</Button>
+                  </Link>
+                )
+            }
+          </div>
         </div>
         {/* <MobileMenu /> */}
       </div>

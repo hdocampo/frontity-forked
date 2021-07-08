@@ -21,9 +21,18 @@ import PageError from './page-error';
 // import useStyles from './styles'
 
 const globalStyles = css`
+  html, body {
+    height: 100%;
+  }
   body {
     margin: 0;
     font-family: 'Roboto-Light', sans-serif;
+  }
+  #root {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
   }
   a,
   a:visited {

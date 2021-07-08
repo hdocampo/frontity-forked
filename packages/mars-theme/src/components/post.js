@@ -32,7 +32,10 @@ const Post = ({ state, actions, libraries }) => {
 
   // Load the post, but only if the data is ready.
   return data.isReady ? (
-    <Container maxWidth="lg">
+    <Container maxWidth="lg" style={{
+      height: '100%',
+      justifyContent: 'space-between'
+    }}>
       <div>
         <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
 
@@ -134,6 +137,18 @@ const Content = styled.div`
 
     figcaption {
       font-size: 0.7em;
+    }
+
+    img {
+      height: auto;
+      position: relative;
+    }
+
+    span {
+      width: 35%;
+      float: right;
+      padding-bottom: 0;
+      margin-left: 40px;
     }
   }
 

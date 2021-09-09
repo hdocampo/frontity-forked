@@ -69,6 +69,14 @@ const Theme = ({ state, libraries }) => {
       description: 'Porque tu dolor no puede esperar, te esperamos en la clínica con todas las medidas de seguridad sanitaria para cuidarte y cuidarnos.',
       buttonLink: '#contact-form-section',
       buttonText: 'Agendar Consulta',
+      image: 'fisioespalda-slide-home-1.jpg'
+    },
+    {
+      name: 'Pagá online',
+      description: 'Ahora podés abonar tu cuota mensual con tu medio de pago preferido, de manera rápida, ágil y segura.',
+      buttonLink: 'https://mpago.la/1Fkc7dB',
+      buttonText: 'Pagar cuota',
+      image: 'fisioespalda-slide-home-2.jpg'
     }
   ]
 

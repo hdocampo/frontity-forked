@@ -15,7 +15,6 @@ export default makeStyles(theme => ({
     }
   },
   slider: {
-    background: `url(${require("../../assets/fisioespalda-slide-home-1.jpg")})`,
     backgroundSize: 'cover',
     color: WHITE,
     width: '100%',
@@ -38,7 +37,12 @@ export default makeStyles(theme => ({
     }
   },
   sliderButton: {
-    ...BUTTON_STYLE_LIGHT,
+    '&, & a': {
+      ...BUTTON_STYLE_LIGHT,
+    },
+    '& a': {
+      background: 'none',
+    }
   },
   sliderText: {
     maxWidth: '40%',

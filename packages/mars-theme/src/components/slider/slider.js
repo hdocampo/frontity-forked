@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import Carousel from 'react-material-ui-carousel';
 import { Button, Typography } from '@material-ui/core';
@@ -10,13 +10,22 @@ const Slider = (props) => {
   const { items } = props;
 
   const Item = (item) => {
-    return (
-      <div className={classes.slider}>
-        <Typography variant="h2" component="h2" gutterBottom>
-          {item.name}
-        </Typography>
-        <Typography component="p" className={classes.sliderText}>{item.description}</Typography>
-
+    const buildSlideLink = () => {
+      return item.buttonLink.indexOf('http') !== -1 ? (
+        <Button
+          variant="contained"
+          className={classes.sliderButton}
+        >
+          <a
+            href={item.buttonLink}
+            target="_blank"
+            rel="noreferrer"
+            title={item.buttonText}
+          >
+            {item.buttonText}
+          </a>
+        </Button>
+      ) : (
         <AnchorLink href={item.buttonLink}>
           <Button
             variant="contained"
@@ -25,6 +34,25 @@ const Slider = (props) => {
             {item.buttonText}
           </Button>
         </AnchorLink>
+      )
+    }
+    return (
+      <div
+        className={classes.slider}
+        style={
+          {
+            background: `url(${require(`../../assets/${item.image}`)})`,
+            backgroundSize: 'cover'
+          }
+        }
+      >
+        <Typography variant="h2" component="h2" gutterBottom>
+          {item.name}
+        </Typography>
+        <Typography component="p" className={classes.sliderText}>
+          {item.description}
+        </Typography>
+        {buildSlideLink()}
       </div>
     )
   }
@@ -35,6 +63,7 @@ const Slider = (props) => {
       indicators={false}
       navButtonsAlwaysVisible
       fullHeightHover
+      swipe
     >
       {
         items.map((item, i) => <Item key={i} {...item} />)

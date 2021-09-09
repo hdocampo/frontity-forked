@@ -42,7 +42,8 @@ const Slider = (props) => {
         style={
           {
             background: `url(${require(`../../assets/${item.image}`)})`,
-            backgroundSize: 'cover'
+            backgroundSize: 'cover',
+            backgroundPositionX: 'center'
           }
         }
       >

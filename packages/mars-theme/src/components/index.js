@@ -180,17 +180,17 @@ const Theme = ({ state, libraries }) => {
               />
               <Container maxWidth="lg" disableGutters>
                 <HomeContainer>
-                  <FeaturedItems
-                    items={featuredList}
-                  />
-                  <ContactForm
-                    libraries={libraries}
-                  />
                   <Infrared
                     title={infraredContent.title}
                     subtitle={infraredContent.subtitle}
                     text={infraredContent.text}
                     link={infraredContent.buttonLink}
+                    libraries={libraries}
+                  />
+                  <FeaturedItems
+                    items={featuredList}
+                  />
+                  <ContactForm
                     libraries={libraries}
                   />
                 </HomeContainer>

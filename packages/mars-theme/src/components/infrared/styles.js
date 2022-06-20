@@ -18,7 +18,7 @@ export default makeStyles(theme => ({
       flexDirection: 'column',
       padding: `calc(${MAIN_PADDING} / 2)`,
       paddingBottom: 0,
-      order: 1,
+      // order: 1,
       marginBottom: MAIN_PADDING
     },
   },
@@ -50,10 +50,15 @@ export default makeStyles(theme => ({
     }
   },
   infraredImage: {
-    background: `url(${require('../../assets/infrared.jpg')})`,
-    backgroundPosition: '-30px bottom',
-    minWidth: 480,
-    minHeight: 570,
+    background: `url(${require('../../assets/infrared-fisioespalda-ipad.jpg')})`,
+    // backgroundPosition: '-30px bottom',
+    // minWidth: 480,
+    // minHeight: 570,
+    minWidth: 680,
+    minHeight: 475,
+    backgroundPosition: 'right bottom',
+    backgroundSize: 'cover',
+    marginRight: -71,
     [theme.breakpoints.down('sm')]: {
       width: '100%',
       backgroundRepeat: 'no-repeat',
